@@ -2,82 +2,195 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Набор инструментов — Винтаж-лавка</title>
-    <meta
-      name="description"
-      content="Набор инструментов: описание, характеристики и цена. Оставьте заявку на сайте Винтаж-лавки."
-    />
+    <meta name="description" content="Набор инструментов: Молоток, топор, клещи и рабочие перчатки. Цена 4 500 ₽. Винтаж-лавка." />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <script src="js/main.js" defer></script>
   </head>
   <body>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
     <header class="site-header">
       <div class="container site-header__inner">
         <a class="site-header__logo" href="index.html">Винтаж-лавка</a>
-        <nav class="site-nav" aria-label="Основное меню">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span>Меню</span>
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="Основное меню">
           <ul class="site-nav__list">
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="index.html">Главная</a>
-            </li>
-            <li class="site-nav__item">
-              <a
-                class="site-nav__link site-nav__link--active"
-                href="catalog.html"
-                aria-current="page"
-                >Каталог</a
-              >
-            </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="contacts.html">Контакты</a>
-            </li>
+            <li><a class="site-nav__link" href="index.html">Главная</a></li>
+            <li><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+            <li><a class="site-nav__link" href="order.html">Заявка</a></li>
+            <li><a class="site-nav__link" href="contacts.html">Контакты</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <main>
+    <main id="main" tabindex="-1">
       <section class="section">
         <div class="container">
+          <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <ol>
+              <li><a href="index.html">Главная</a></li>
+              <li><a href="catalog.html">Каталог</a></li>
+              <li><span aria-current="page">Набор инструментов</span></li>
+            </ol>
+          </nav>
           <article class="product">
-            <img
-              class="product__img"
-              src="images/work-6.jpg"
-              alt="Набор старых инструментов на тёмной доске"
-              width="650"
-              height="350"
-            />
-            <div class="product__info">
-              <h1>Набор инструментов</h1>
-              <p>
-                Молоток, топор и рабочие перчатки. Винтажный набор для
-                мастерской, проверен и очищен.
-              </p>
-              <ul class="product__features">
-                <li>В наборе: молоток, топор, перчатки</li>
-                <li>Материал: сталь, дерево, кожа</li>
-                <li>Состояние: хорошее</li>
-                <li>Гарантия: возврат в течение 14 дней</li>
+            <div>
+              <picture>
+                <source type="image/webp" srcset="images/tools-set-320.webp 320w, images/tools-set-480.webp 480w, images/tools-set-640.webp 640w" sizes="(min-width: 1440px) 584px, (min-width: 1024px) 464px, (min-width: 768px) calc(50vw - 36px), calc(100vw - 32px)" />
+                <img class="product__img" src="images/tools-set-640.jpg" srcset="images/tools-set-320.jpg 320w, images/tools-set-480.jpg 480w, images/tools-set-640.jpg 640w" sizes="(min-width: 1440px) 584px, (min-width: 1024px) 464px, (min-width: 768px) calc(50vw - 36px), calc(100vw - 32px)" alt="Набор старых инструментов на тёмной деревянной доске" width="640" height="480" fetchpriority="high" decoding="async" />
+              </picture>
+            </div>
+            <div>
+              <div class="product__badges">
+                <span class="badge">Хит</span>
+                <span class="badge badge--muted">Инструменты</span>
+              </div>
+              <h1 class="product__title">Набор инструментов</h1>
+              <p>Молоток, топор и рабочие перчатки. Винтажный набор для мастерской: металл очищен от ржавчины и смазан, рукояти отшлифованы.</p>
+              <ul>
+                <li>Состав: 9 предметов</li>
+                <li>Материал: Сталь, дерево, кожа</li>
+                <li>Вес: 3,2 кг</li>
               </ul>
               <p class="product__price">4 500 ₽</p>
-              <a class="button" href="order.html">Оставить заявку</a>
-              <a class="button button--outline" href="catalog.html"
-                >В каталог</a
-              >
+              <div class="actions">
+                <a class="button" href="order.html">Оставить заявку</a>
+                <a class="button button--outline" href="catalog.html">В каталог</a>
+              </div>
             </div>
           </article>
+        </div>
+      </section>
+
+      <section class="section section--alt" aria-labelledby="specs-title">
+        <div class="container">
+          <h2 class="section__title" id="specs-title">Характеристики</h2>
+          <div class="table-wrapper">
+            <table class="product-table">
+              <caption class="visually-hidden">Характеристики: Набор инструментов</caption>
+              <tbody>
+                <tr>
+                  <th scope="row">Состав</th>
+                  <td>9 предметов</td>
+                </tr>
+                <tr>
+                  <th scope="row">Материал</th>
+                  <td>Сталь, дерево, кожа</td>
+                </tr>
+                <tr>
+                  <th scope="row">Вес</th>
+                  <td>3,2 кг</td>
+                </tr>
+                <tr>
+                  <th scope="row">Состояние</th>
+                  <td>Хорошее</td>
+                </tr>
+                <tr>
+                  <th scope="row">Гарантия</th>
+                  <td>Возврат 14 дней</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="compare-title">
+        <div class="container">
+          <h2 class="section__title" id="compare-title">Сравнение с похожими</h2>
+          <p class="section__lead">На телефоне каждая характеристика показана отдельной карточкой, с 600px — обычной таблицей.</p>
+          <div class="table-wrapper" role="region" aria-labelledby="compare-title" tabindex="0">
+            <table class="compare" role="table">
+              <caption class="visually-hidden">Сравнение: Набор инструментов, Кожаные перчатки, Топор и молоток</caption>
+              <thead role="rowgroup">
+                <tr role="row">
+                  <th scope="col" role="columnheader">Характеристика</th>
+                  <th scope="col" role="columnheader">Набор инструментов <span class="visually-hidden">(этот товар)</span></th>
+                  <th scope="col" role="columnheader">Кожаные перчатки</th>
+                  <th scope="col" role="columnheader">Топор и молоток</th>
+                </tr>
+              </thead>
+              <tbody role="rowgroup">
+                <tr role="row">
+                  <th scope="row" role="rowheader">Цена</th>
+                  <td role="cell" data-label="Набор инструментов" class="is-current">4 500 ₽</td>
+                  <td role="cell" data-label="Кожаные перчатки">1 100 ₽</td>
+                  <td role="cell" data-label="Топор и молоток">3 200 ₽</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Состав</th>
+                  <td role="cell" data-label="Набор инструментов" class="is-current">9 предметов</td>
+                  <td role="cell" data-label="Кожаные перчатки">Пара, размер L</td>
+                  <td role="cell" data-label="Топор и молоток">Топор и молоток</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Материал</th>
+                  <td role="cell" data-label="Набор инструментов" class="is-current">Сталь, дерево, кожа</td>
+                  <td role="cell" data-label="Кожаные перчатки">Воловья кожа, хлопок</td>
+                  <td role="cell" data-label="Топор и молоток">Сталь, ясень</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Вес</th>
+                  <td role="cell" data-label="Набор инструментов" class="is-current">3,2 кг</td>
+                  <td role="cell" data-label="Кожаные перчатки">250 г</td>
+                  <td role="cell" data-label="Топор и молоток">1,6 кг</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Состояние</th>
+                  <td role="cell" data-label="Набор инструментов" class="is-current">Хорошее</td>
+                  <td role="cell" data-label="Кожаные перчатки">Хорошее</td>
+                  <td role="cell" data-label="Топор и молоток">Хорошее</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Гарантия</th>
+                  <td role="cell" data-label="Набор инструментов" class="is-current">Возврат 14 дней</td>
+                  <td role="cell" data-label="Кожаные перчатки">Возврат 14 дней</td>
+                  <td role="cell" data-label="Топор и молоток">Возврат 14 дней</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container">
-        <section class="site-footer__about" id="about">
-          <h2 class="site-footer__title">О нас</h2>
-          <p class="site-footer__text">
-            Винтаж-лавка — небольшой магазин старинных и винтажных вещей:
-            камеры, инструменты, канцелярия и предметы интерьера.
-          </p>
-        </section>
+        <div class="site-footer__grid">
+          <section id="about" aria-labelledby="about-title">
+            <h2 id="about-title">О нас</h2>
+            <p>
+              Винтаж-лавка — небольшой магазин старинных и винтажных вещей:
+              камеры, инструменты, канцелярия и предметы интерьера.
+            </p>
+          </section>
+          <nav aria-labelledby="footer-nav-title">
+            <h2 id="footer-nav-title">Разделы</h2>
+            <ul class="site-footer__list">
+              <li><a href="index.html">Главная</a></li>
+              <li><a href="catalog.html">Каталог</a></li>
+              <li><a href="order.html">Заявка</a></li>
+              <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+          </nav>
+          <section aria-labelledby="footer-contacts-title">
+            <h2 id="footer-contacts-title">Контакты</h2>
+            <address class="site-footer__list">
+              <span>Москва, ул. Пушкина, д. Колотушкина</span>
+              <a href="tel:+70000000000">+7 (000) 000-00-00</a>
+              <a href="mailto:hello@example.com">hello@example.com</a>
+            </address>
+          </section>
+        </div>
         <p class="site-footer__copy">2026 Винтаж-лавка. Учебный проект</p>
       </div>
     </footer>

@@ -2,118 +2,161 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Плёночная камера — Винтаж-лавка</title>
-    <meta
-      name="description"
-      content="Плёночная камера 35 мм: описание, цена и сравнение характеристик трёх моделей."
-    />
+    <meta name="description" content="Плёночная камера: Механическая камера 35 мм в рабочем состоянии. Цена 12 900 ₽. Винтаж-лавка." />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <script src="js/main.js" defer></script>
   </head>
   <body>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
     <header class="site-header">
       <div class="container site-header__inner">
         <a class="site-header__logo" href="index.html">Винтаж-лавка</a>
-        <nav class="site-nav" aria-label="Основное меню">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span>Меню</span>
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="Основное меню">
           <ul class="site-nav__list">
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="index.html">Главная</a>
-            </li>
-            <li class="site-nav__item">
-              <a
-                class="site-nav__link site-nav__link--active"
-                href="catalog.html"
-                aria-current="page"
-                >Каталог</a
-              >
-            </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="contacts.html">Контакты</a>
-            </li>
+            <li><a class="site-nav__link" href="index.html">Главная</a></li>
+            <li><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+            <li><a class="site-nav__link" href="order.html">Заявка</a></li>
+            <li><a class="site-nav__link" href="contacts.html">Контакты</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <main>
+    <main id="main" tabindex="-1">
       <section class="section">
         <div class="container">
+          <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <ol>
+              <li><a href="index.html">Главная</a></li>
+              <li><a href="catalog.html">Каталог</a></li>
+              <li><span aria-current="page">Плёночная камера</span></li>
+            </ol>
+          </nav>
           <article class="product">
-            <img
-              class="product__img"
-              src="images/work-3.jpg"
-              alt="Две плёночные камеры на деревянной полке"
-              width="650"
-              height="350"
-            />
-            <div class="product__info">
-              <h1>Плёночная камера</h1>
-              <p>
-                Механическая камера 35 мм в рабочем состоянии. Проверена,
-                очищена и готова к съёмке.
-              </p>
-              <ul class="product__features">
+            <div>
+              <picture>
+                <source type="image/webp" srcset="images/camera-slr-320.webp 320w, images/camera-slr-480.webp 480w, images/camera-slr-640.webp 640w" sizes="(min-width: 1440px) 584px, (min-width: 1024px) 464px, (min-width: 768px) calc(50vw - 36px), calc(100vw - 32px)" />
+                <img class="product__img" src="images/camera-slr-640.jpg" srcset="images/camera-slr-320.jpg 320w, images/camera-slr-480.jpg 480w, images/camera-slr-640.jpg 640w" sizes="(min-width: 1440px) 584px, (min-width: 1024px) 464px, (min-width: 768px) calc(50vw - 36px), calc(100vw - 32px)" alt="Зеркальная плёночная камера с объективом на деревянной полке" width="640" height="480" fetchpriority="high" decoding="async" />
+              </picture>
+            </div>
+            <div>
+              <div class="product__badges">
+                <span class="badge">Хит</span>
+                <span class="badge badge--muted">Камеры</span>
+              </div>
+              <h1 class="product__title">Плёночная камера</h1>
+              <p>Зеркальная камера конца 1970-х с объективом 50 мм. Проверена, очищена и готова к съёмке: затвор работает на всех выдержках, оптика без царапин.</p>
+              <ul>
+                <li>Тип: Зеркальная</li>
                 <li>Формат плёнки: 35 мм</li>
-                <li>Затвор и диафрагма работают</li>
-                <li>Гарантия: 6 месяцев</li>
+                <li>Объектив: 50 мм, f/1.8</li>
               </ul>
               <p class="product__price">12 900 ₽</p>
-              <a class="button" href="order.html">Оставить заявку</a>
-              <a class="button button--outline" href="catalog.html"
-                >В каталог</a
-              >
+              <div class="actions">
+                <a class="button" href="order.html">Оставить заявку</a>
+                <a class="button button--outline" href="catalog.html">В каталог</a>
+              </div>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="section section--alt">
+      <section class="section section--alt" aria-labelledby="specs-title">
         <div class="container">
-          <div class="compare-wrap">
-            <table class="compare">
-              <caption class="compare__caption">
-                Сравнение моделей
-              </caption>
-              <thead>
-                <tr>
-                  <th class="compare__cell compare__cell--head" scope="col">
-                    Характеристика
-                  </th>
-                  <th class="compare__cell compare__cell--head" scope="col">
-                    Товар А
-                  </th>
-                  <th class="compare__cell compare__cell--head" scope="col">
-                    Товар В
-                  </th>
-                  <th class="compare__cell compare__cell--head" scope="col">
-                    Товар С
-                  </th>
-                </tr>
-              </thead>
+          <h2 class="section__title" id="specs-title">Характеристики</h2>
+          <div class="table-wrapper">
+            <table class="product-table">
+              <caption class="visually-hidden">Характеристики: Плёночная камера</caption>
               <tbody>
                 <tr>
-                  <th class="compare__cell" scope="row">Цена</th>
-                  <td class="compare__cell">12 900 ₽</td>
-                  <td class="compare__cell">15 500 ₽</td>
-                  <td class="compare__cell">19 900 ₽</td>
+                  <th scope="row">Тип</th>
+                  <td>Зеркальная</td>
                 </tr>
                 <tr>
-                  <th class="compare__cell" scope="row">Формат плёнки</th>
-                  <td class="compare__cell">35 мм</td>
-                  <td class="compare__cell">35 мм</td>
-                  <td class="compare__cell">120 мм</td>
+                  <th scope="row">Формат плёнки</th>
+                  <td>35 мм</td>
                 </tr>
                 <tr>
-                  <th class="compare__cell" scope="row">Вес</th>
-                  <td class="compare__cell">480 г</td>
-                  <td class="compare__cell">620 г</td>
-                  <td class="compare__cell">900 г</td>
+                  <th scope="row">Объектив</th>
+                  <td>50 мм, f/1.8</td>
                 </tr>
                 <tr>
-                  <th class="compare__cell" scope="row">Гарантия</th>
-                  <td class="compare__cell">6 месяцев</td>
-                  <td class="compare__cell">12 месяцев</td>
-                  <td class="compare__cell">12 месяцев</td>
+                  <th scope="row">Вес</th>
+                  <td>620 г</td>
+                </tr>
+                <tr>
+                  <th scope="row">Состояние</th>
+                  <td>Отличное</td>
+                </tr>
+                <tr>
+                  <th scope="row">Гарантия</th>
+                  <td>6 месяцев</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="compare-title">
+        <div class="container">
+          <h2 class="section__title" id="compare-title">Сравнение с похожими</h2>
+          <p class="section__lead">На телефоне каждая характеристика показана отдельной карточкой, с 600px — обычной таблицей.</p>
+          <div class="table-wrapper" role="region" aria-labelledby="compare-title" tabindex="0">
+            <table class="compare" role="table">
+              <caption class="visually-hidden">Сравнение: Плёночная камера, Складная камера 6×9</caption>
+              <thead role="rowgroup">
+                <tr role="row">
+                  <th scope="col" role="columnheader">Характеристика</th>
+                  <th scope="col" role="columnheader">Плёночная камера <span class="visually-hidden">(этот товар)</span></th>
+                  <th scope="col" role="columnheader">Складная камера 6×9</th>
+                </tr>
+              </thead>
+              <tbody role="rowgroup">
+                <tr role="row">
+                  <th scope="row" role="rowheader">Цена</th>
+                  <td role="cell" data-label="Плёночная камера" class="is-current">12 900 ₽</td>
+                  <td role="cell" data-label="Складная камера 6×9">15 500 ₽</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Тип</th>
+                  <td role="cell" data-label="Плёночная камера" class="is-current">Зеркальная</td>
+                  <td role="cell" data-label="Складная камера 6×9">Складная</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Формат плёнки</th>
+                  <td role="cell" data-label="Плёночная камера" class="is-current">35 мм</td>
+                  <td role="cell" data-label="Складная камера 6×9">120 (6×9 см)</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Объектив</th>
+                  <td role="cell" data-label="Плёночная камера" class="is-current">50 мм, f/1.8</td>
+                  <td role="cell" data-label="Складная камера 6×9">105 мм, f/3.5</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Вес</th>
+                  <td role="cell" data-label="Плёночная камера" class="is-current">620 г</td>
+                  <td role="cell" data-label="Складная камера 6×9">700 г</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Состояние</th>
+                  <td role="cell" data-label="Плёночная камера" class="is-current">Отличное</td>
+                  <td role="cell" data-label="Складная камера 6×9">Хорошее</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Гарантия</th>
+                  <td role="cell" data-label="Плёночная камера" class="is-current">6 месяцев</td>
+                  <td role="cell" data-label="Складная камера 6×9">6 месяцев</td>
                 </tr>
               </tbody>
             </table>
@@ -124,13 +167,32 @@
 
     <footer class="site-footer">
       <div class="container">
-        <section class="site-footer__about" id="about">
-          <h2 class="site-footer__title">О нас</h2>
-          <p class="site-footer__text">
-            Винтаж-лавка — небольшой магазин старинных и винтажных вещей:
-            камеры, инструменты, канцелярия и предметы интерьера.
-          </p>
-        </section>
+        <div class="site-footer__grid">
+          <section id="about" aria-labelledby="about-title">
+            <h2 id="about-title">О нас</h2>
+            <p>
+              Винтаж-лавка — небольшой магазин старинных и винтажных вещей:
+              камеры, инструменты, канцелярия и предметы интерьера.
+            </p>
+          </section>
+          <nav aria-labelledby="footer-nav-title">
+            <h2 id="footer-nav-title">Разделы</h2>
+            <ul class="site-footer__list">
+              <li><a href="index.html">Главная</a></li>
+              <li><a href="catalog.html">Каталог</a></li>
+              <li><a href="order.html">Заявка</a></li>
+              <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+          </nav>
+          <section aria-labelledby="footer-contacts-title">
+            <h2 id="footer-contacts-title">Контакты</h2>
+            <address class="site-footer__list">
+              <span>Москва, ул. Пушкина, д. Колотушкина</span>
+              <a href="tel:+70000000000">+7 (000) 000-00-00</a>
+              <a href="mailto:hello@example.com">hello@example.com</a>
+            </address>
+          </section>
+        </div>
         <p class="site-footer__copy">2026 Винтаж-лавка. Учебный проект</p>
       </div>
     </footer>
