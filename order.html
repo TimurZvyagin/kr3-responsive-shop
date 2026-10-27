@@ -2,101 +2,99 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Заявка — Винтаж-лавка</title>
-    <meta
-      name="description"
-      content="Форма заявки Винтаж-лавки: укажите имя, e-mail, телефон, товар и сообщение."
-    />
+    <meta name="description" content="Оставьте заявку в Винтаж-лавке: выберите товар, и мы свяжемся с вами в течение рабочего дня." />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <script src="js/main.js" defer></script>
   </head>
   <body>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
     <header class="site-header">
       <div class="container site-header__inner">
         <a class="site-header__logo" href="index.html">Винтаж-лавка</a>
-        <nav class="site-nav" aria-label="Основное меню">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span>Меню</span>
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="Основное меню">
           <ul class="site-nav__list">
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="index.html">Главная</a>
-            </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="catalog.html">Каталог</a>
-            </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="contacts.html">Контакты</a>
-            </li>
+            <li><a class="site-nav__link" href="index.html">Главная</a></li>
+            <li><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+            <li><a class="site-nav__link site-nav__link--active" href="order.html" aria-current="page">Заявка</a></li>
+            <li><a class="site-nav__link" href="contacts.html">Контакты</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <main>
+    <main id="main" tabindex="-1">
       <section class="section">
         <div class="container">
+          <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <ol>
+              <li><a href="index.html">Главная</a></li>
+              <li><span aria-current="page">Заявка</span></li>
+            </ol>
+          </nav>
           <h1>Заявка</h1>
+          <p class="section__lead">Заполните форму — менеджер перезвонит в течение рабочего дня. Поля со звёздочкой (<span class="order-form__required">*</span>) обязательны.</p>
           <form class="order-form" action="order.html" method="get">
-            <div class="order-form__field">
-              <label class="order-form__label" for="name">Имя</label>
-              <input
-                class="order-form__input"
-                id="name"
-                name="name"
-                type="text"
-                autocomplete="name"
-                required
-              />
+            <div class="order-form__row">
+              <div class="order-form__field">
+                <label class="order-form__label" for="name">Имя <span class="order-form__required" aria-hidden="true">*</span></label>
+                <input class="order-form__input" id="name" name="name" type="text" autocomplete="name" required />
+              </div>
+              <div class="order-form__field">
+                <label class="order-form__label" for="email">E-mail <span class="order-form__required" aria-hidden="true">*</span></label>
+                <input class="order-form__input" id="email" name="email" type="email" autocomplete="email" inputmode="email" required />
+              </div>
             </div>
-            <div class="order-form__field">
-              <label class="order-form__label" for="email">Email</label>
-              <input
-                class="order-form__input"
-                id="email"
-                name="email"
-                type="email"
-                autocomplete="email"
-                required
-              />
+            <div class="order-form__row">
+              <div class="order-form__field">
+                <label class="order-form__label" for="phone">Телефон <span class="order-form__required" aria-hidden="true">*</span></label>
+                <input class="order-form__input" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 900 123-45-67" aria-describedby="phone-hint" required />
+                <p class="order-form__hint" id="phone-hint">Формат: +7 и 10 цифр</p>
+              </div>
+              <div class="order-form__field">
+                <label class="order-form__label" for="product">Товар <span class="order-form__required" aria-hidden="true">*</span></label>
+                <select class="order-form__input" id="product" name="product" required>
+                  <option value="">Выберите товар</option>
+                  <option value="camera-slr">Плёночная камера — 12 900 ₽</option>
+                  <option value="tools-set">Набор инструментов — 4 500 ₽</option>
+                  <option value="notebook">Блокнот в обложке — 890 ₽</option>
+                  <option value="coasters">Деревянные подставки — 1 200 ₽</option>
+                  <option value="camera-folding">Складная камера 6×9 — 15 500 ₽</option>
+                  <option value="gloves">Кожаные перчатки — 1 100 ₽</option>
+                  <option value="axe-hammer">Топор и молоток — 3 200 ₽</option>
+                  <option value="tongs">Кованые щипцы — 2 300 ₽</option>
+                </select>
+              </div>
             </div>
-            <div class="order-form__field">
-              <label class="order-form__label" for="phone">Телефон</label>
-              <input
-                class="order-form__input"
-                id="phone"
-                name="phone"
-                type="tel"
-                autocomplete="tel"
-                required
-              />
-            </div>
-            <div class="order-form__field">
-              <label class="order-form__label" for="product">Товар</label>
-              <select
-                class="order-form__input"
-                id="product"
-                name="product"
-                required
-              >
-                <option value="">Выберите товар</option>
-                <option value="1">Плёночная камера</option>
-                <option value="2">Блокнот в обложке</option>
-                <option value="3">Набор инструментов</option>
-              </select>
-            </div>
+            <fieldset class="order-form__group">
+              <legend>Как с вами связаться</legend>
+              <div class="order-form__choices">
+                <label class="check" for="contact-phone"><input type="radio" id="contact-phone" name="contact" value="phone" checked /> Позвонить</label>
+                <label class="check" for="contact-email"><input type="radio" id="contact-email" name="contact" value="email" /> Написать на e-mail</label>
+                <label class="check" for="contact-messenger"><input type="radio" id="contact-messenger" name="contact" value="messenger" /> Написать в мессенджер</label>
+              </div>
+            </fieldset>
             <div class="order-form__field">
               <label class="order-form__label" for="message">Сообщение</label>
-              <textarea
-                class="order-form__input"
-                id="message"
-                name="message"
-                rows="4"
-              ></textarea>
+              <textarea class="order-form__input" id="message" name="message" rows="4" aria-describedby="message-hint"></textarea>
+              <p class="order-form__hint" id="message-hint">Например, удобное время для звонка</p>
             </div>
-            <div class="order-form__field order-form__field--check">
+            <div class="check">
               <input id="agree" name="agree" type="checkbox" required />
-              <label for="agree">Согласен на обработку данных</label>
+              <label for="agree">Согласен на обработку данных <span class="order-form__required" aria-hidden="true">*</span></label>
             </div>
-            <div class="order-form__actions">
+            <div class="actions">
               <button class="button" type="submit">Отправить</button>
+              <button class="button button--outline" type="reset">Очистить форму</button>
             </div>
           </form>
         </div>
@@ -105,13 +103,32 @@
 
     <footer class="site-footer">
       <div class="container">
-        <section class="site-footer__about" id="about">
-          <h2 class="site-footer__title">О нас</h2>
-          <p class="site-footer__text">
-            Винтаж-лавка — небольшой магазин старинных и винтажных вещей:
-            камеры, инструменты, канцелярия и предметы интерьера.
-          </p>
-        </section>
+        <div class="site-footer__grid">
+          <section id="about" aria-labelledby="about-title">
+            <h2 id="about-title">О нас</h2>
+            <p>
+              Винтаж-лавка — небольшой магазин старинных и винтажных вещей:
+              камеры, инструменты, канцелярия и предметы интерьера.
+            </p>
+          </section>
+          <nav aria-labelledby="footer-nav-title">
+            <h2 id="footer-nav-title">Разделы</h2>
+            <ul class="site-footer__list">
+              <li><a href="index.html">Главная</a></li>
+              <li><a href="catalog.html">Каталог</a></li>
+              <li><a href="order.html">Заявка</a></li>
+              <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+          </nav>
+          <section aria-labelledby="footer-contacts-title">
+            <h2 id="footer-contacts-title">Контакты</h2>
+            <address class="site-footer__list">
+              <span>Москва, ул. Пушкина, д. Колотушкина</span>
+              <a href="tel:+70000000000">+7 (000) 000-00-00</a>
+              <a href="mailto:hello@example.com">hello@example.com</a>
+            </address>
+          </section>
+        </div>
         <p class="site-footer__copy">2026 Винтаж-лавка. Учебный проект</p>
       </div>
     </footer>

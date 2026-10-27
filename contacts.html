@@ -2,63 +2,140 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Контакты — Винтаж-лавка</title>
-    <meta
-      name="description"
-      content="Контакты Винтаж-лавки: адрес, телефон, e-mail и часы работы."
-    />
+    <meta name="description" content="Контакты Винтаж-лавки: адрес, телефон, e-mail, часы работы и форма обратной связи." />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <script src="js/main.js" defer></script>
   </head>
   <body>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
     <header class="site-header">
       <div class="container site-header__inner">
         <a class="site-header__logo" href="index.html">Винтаж-лавка</a>
-        <nav class="site-nav" aria-label="Основное меню">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span>Меню</span>
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="Основное меню">
           <ul class="site-nav__list">
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="index.html">Главная</a>
-            </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="catalog.html">Каталог</a>
-            </li>
-            <li class="site-nav__item">
-              <a
-                class="site-nav__link site-nav__link--active"
-                href="contacts.html"
-                aria-current="page"
-                >Контакты</a
-              >
-            </li>
+            <li><a class="site-nav__link" href="index.html">Главная</a></li>
+            <li><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+            <li><a class="site-nav__link" href="order.html">Заявка</a></li>
+            <li><a class="site-nav__link site-nav__link--active" href="contacts.html" aria-current="page">Контакты</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <main>
+    <main id="main" tabindex="-1">
       <section class="section">
         <div class="container">
+          <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <ol>
+              <li><a href="index.html">Главная</a></li>
+              <li><span aria-current="page">Контакты</span></li>
+            </ol>
+          </nav>
           <h1>Контакты</h1>
-          <p>Адрес: Москва, ул. Пушкина, д. Колотушкина</p>
-          <p>Телефон: <a href="tel:+70000000000">+7 (000) 000-00-00</a></p>
-          <p>
-            E-mail: <a href="mailto:hello@example.com">hello@example.com</a>
-          </p>
-          <p>Часы работы: пн–пт, 10:00–19:00</p>
-          <a class="button" href="order.html">Оставить заявку</a>
+          <p class="section__lead">Приходите посмотреть вещи вживую или напишите нам — ответим в течение рабочего дня.</p>
+          <ul class="contact-cards">
+            <li class="box">
+              <h2>Адрес</h2>
+              <p>Москва, ул. Пушкина, д. Колотушкина</p>
+            </li>
+            <li class="box">
+              <h2>Телефон</h2>
+              <p><a href="tel:+70000000000">+7 (000) 000-00-00</a></p>
+            </li>
+            <li class="box">
+              <h2>E-mail</h2>
+              <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+            </li>
+            <li class="box">
+              <h2>Часы работы</h2>
+              <p>Пн–пт, 10:00–19:00<br />Сб, 11:00–17:00</p>
+            </li>
+          </ul>
+
+          <div class="contacts-layout">
+            <section aria-labelledby="route-title">
+              <h2 id="route-title">Как добраться</h2>
+              <p>7 минут пешком от станции метро «Пушкинская». Вход со двора, зелёная дверь с колокольчиком.</p>
+              <p>Перед визитом можно оставить <a href="order.html">заявку</a> — отложим вещь до вашего прихода.</p>
+            </section>
+            <section aria-labelledby="feedback-title">
+              <h2 id="feedback-title">Обратная связь</h2>
+              <form class="order-form" action="contacts.html" method="get">
+                <div class="order-form__row">
+                  <div class="order-form__field">
+                    <label class="order-form__label" for="fb-name">Имя <span class="order-form__required" aria-hidden="true">*</span></label>
+                    <input class="order-form__input" id="fb-name" name="name" type="text" autocomplete="name" required />
+                  </div>
+                  <div class="order-form__field">
+                    <label class="order-form__label" for="fb-email">E-mail <span class="order-form__required" aria-hidden="true">*</span></label>
+                    <input class="order-form__input" id="fb-email" name="email" type="email" autocomplete="email" inputmode="email" required />
+                  </div>
+                </div>
+                <div class="order-form__field">
+                  <label class="order-form__label" for="fb-topic">Тема <span class="order-form__required" aria-hidden="true">*</span></label>
+                  <select class="order-form__input" id="fb-topic" name="topic" required>
+                    <option value="">Выберите тему</option>
+                    <option value="product">Вопрос о товаре</option>
+                    <option value="sell">Хочу продать вещь</option>
+                    <option value="other">Другое</option>
+                  </select>
+                </div>
+                <div class="order-form__field">
+                  <label class="order-form__label" for="fb-message">Сообщение <span class="order-form__required" aria-hidden="true">*</span></label>
+                  <textarea class="order-form__input" id="fb-message" name="message" rows="4" required></textarea>
+                </div>
+                <div class="check">
+                  <input id="fb-agree" name="agree" type="checkbox" required />
+                  <label for="fb-agree">Согласен на обработку данных <span class="order-form__required" aria-hidden="true">*</span></label>
+                </div>
+                <div class="actions">
+                  <button class="button" type="submit">Отправить сообщение</button>
+                </div>
+              </form>
+            </section>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container">
-        <section class="site-footer__about" id="about">
-          <h2 class="site-footer__title">О нас</h2>
-          <p class="site-footer__text">
-            Винтаж-лавка — небольшой магазин старинных и винтажных вещей:
-            камеры, инструменты, канцелярия и предметы интерьера.
-          </p>
-        </section>
+        <div class="site-footer__grid">
+          <section id="about" aria-labelledby="about-title">
+            <h2 id="about-title">О нас</h2>
+            <p>
+              Винтаж-лавка — небольшой магазин старинных и винтажных вещей:
+              камеры, инструменты, канцелярия и предметы интерьера.
+            </p>
+          </section>
+          <nav aria-labelledby="footer-nav-title">
+            <h2 id="footer-nav-title">Разделы</h2>
+            <ul class="site-footer__list">
+              <li><a href="index.html">Главная</a></li>
+              <li><a href="catalog.html">Каталог</a></li>
+              <li><a href="order.html">Заявка</a></li>
+              <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+          </nav>
+          <section aria-labelledby="footer-contacts-title">
+            <h2 id="footer-contacts-title">Контакты</h2>
+            <address class="site-footer__list">
+              <span>Москва, ул. Пушкина, д. Колотушкина</span>
+              <a href="tel:+70000000000">+7 (000) 000-00-00</a>
+              <a href="mailto:hello@example.com">hello@example.com</a>
+            </address>
+          </section>
+        </div>
         <p class="site-footer__copy">2026 Винтаж-лавка. Учебный проект</p>
       </div>
     </footer>
