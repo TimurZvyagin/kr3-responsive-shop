@@ -2,155 +2,152 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Винтаж-лавка — магазин винтажных вещей</title>
-    <meta
-      name="description"
-      content="Винтаж-лавка: магазин старинных вещей. Камеры, инструменты, канцелярия и предметы интерьера."
-    />
+    <meta name="description" content="Винтаж-лавка: магазин старинных вещей. Камеры, инструменты, канцелярия и предметы интерьера." />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <script src="js/main.js" defer></script>
   </head>
   <body>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
     <header class="site-header">
       <div class="container site-header__inner">
         <a class="site-header__logo" href="index.html">Винтаж-лавка</a>
-        <nav class="site-nav" aria-label="Основное меню">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span>Меню</span>
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="Основное меню">
           <ul class="site-nav__list">
-            <li class="site-nav__item">
-              <a
-                class="site-nav__link site-nav__link--active"
-                href="index.html"
-                aria-current="page"
-                >Главная</a
-              >
-            </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="catalog.html">Каталог</a>
-            </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="contacts.html">Контакты</a>
-            </li>
+            <li><a class="site-nav__link site-nav__link--active" href="index.html" aria-current="page">Главная</a></li>
+            <li><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+            <li><a class="site-nav__link" href="order.html">Заявка</a></li>
+            <li><a class="site-nav__link" href="contacts.html">Контакты</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <main>
-      <section class="hero">
-        <div class="container">
-          <h1>Винтаж-лавка: вещи с историей</h1>
-          <p>
-            Небольшой магазин старинных и винтажных вещей для дома и творчества.
-          </p>
-          <div class="hero__actions">
-            <a class="button" href="catalog.html">Смотреть каталог</a>
-            <a class="button button--outline" href="order.html"
-              >Оставить заявку</a
-            >
+    <main id="main" tabindex="-1">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero__inner">
+          <div>
+            <h1 class="hero__title" id="hero-title">Винтаж-лавка: вещи с историей</h1>
+            <p class="hero__lead">Небольшой магазин старинных и винтажных вещей для дома и творчества. Каждую вещь проверяем и описываем честно.</p>
+            <div class="actions">
+              <a class="button" href="catalog.html">Смотреть каталог</a>
+              <a class="button button--outline" href="order.html">Оставить заявку</a>
+            </div>
+            <nav aria-label="Разделы главной страницы">
+              <ul class="anchors">
+                <li><a href="#advantages">Преимущества</a></li>
+                <li><a href="#catalog">Популярное</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+              </ul>
+            </nav>
           </div>
-          <ul class="anchors">
-            <li><a href="#advantages">Преимущества</a></li>
-            <li><a href="#catalog">Каталог</a></li>
-            <li><a href="#about">О нас</a></li>
-            <li><a href="#contacts">Контакты</a></li>
-          </ul>
+          <picture class="hero__media">
+            <source media="(min-width: 768px)" type="image/webp" srcset="images/hero-wide-480.webp 480w, images/hero-wide-650.webp 650w" sizes="(min-width: 1440px) 560px, 45vw" width="650" height="350" />
+            <source type="image/webp" srcset="images/hero-square-360.webp 360w, images/hero-square-480.webp 480w" sizes="calc(100vw - 32px)" />
+            <img src="images/hero-square-480.jpg" srcset="images/hero-square-360.jpg 360w, images/hero-square-480.jpg 480w" sizes="calc(100vw - 32px)" alt="Две плёночные камеры на деревянной полке в лавке" width="480" height="480" fetchpriority="high" />
+          </picture>
         </div>
       </section>
 
-      <section class="section" id="advantages">
+      <section class="section" id="advantages" aria-labelledby="advantages-title">
         <div class="container">
-          <h2>Преимущества</h2>
+          <h2 class="section__title" id="advantages-title">Преимущества</h2>
           <div class="advantages">
-            <article class="advantages__item">
+            <article class="box">
               <h3>Проверенное качество</h3>
-              <p>Каждую вещь осматриваем и описываем честно.</p>
+              <p>Каждую вещь осматриваем и описываем честно, со всеми следами времени.</p>
             </article>
-            <article class="advantages__item">
+            <article class="box">
               <h3>Доставка</h3>
               <p>Аккуратно упаковываем и отправляем по всей России.</p>
             </article>
-            <article class="advantages__item">
+            <article class="box">
               <h3>Гарантия</h3>
-              <p>Возвращаем деньги, если вещь не подошла.</p>
+              <p>Возвращаем деньги, если вещь не подошла, в течение 14 дней.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section section--alt" id="catalog">
+      <section class="section section--alt" id="catalog" aria-labelledby="popular-title">
         <div class="container">
-          <h2>Популярные товары</h2>
-          <div class="product-grid">
-            <article class="product-card">
-              <span class="product-card__badge">Хит</span>
-              <img
-                class="product-card__img"
-                src="images/work-3.jpg"
-                alt="Две плёночные камеры на деревянной полке"
-                width="650"
-                height="350"
-              />
-              <h3 class="product-card__title">Плёночная камера</h3>
-              <p class="product-card__desc">
-                Механическая камера 35 мм в рабочем состоянии.
-              </p>
-              <p class="product-card__price">12 900 ₽</p>
-              <a class="button product-card__button" href="product.html"
-                >Подробнее</a
-              >
-            </article>
-            <article class="product-card">
-              <img
-                class="product-card__img"
-                src="images/work-2.jpg"
-                alt="Блокноты и деревянные подставки на столе"
-                width="650"
-                height="350"
-              />
-              <h3 class="product-card__title">Блокнот в обложке</h3>
-              <p class="product-card__desc">
-                Плотная бумага и прочная обложка.
-              </p>
-              <p class="product-card__price">890 ₽</p>
-              <a
-                class="button product-card__button"
-                href="product-notebook.html"
-                >Подробнее</a
-              >
-            </article>
-            <article class="product-card">
-              <img
-                class="product-card__img"
-                src="images/work-6.jpg"
-                alt="Набор старых инструментов на тёмной доске"
-                width="650"
-                height="350"
-              />
-              <h3 class="product-card__title">Набор инструментов</h3>
-              <p class="product-card__desc">
-                Молоток, топор и рабочие перчатки.
-              </p>
-              <p class="product-card__price">4 500 ₽</p>
-              <a class="button product-card__button" href="product-tools.html"
-                >Подробнее</a
-              >
-            </article>
-          </div>
-          <p>
-            <a class="button button--outline" href="catalog.html"
-              >Весь каталог</a
-            >
-          </p>
+          <h2 class="section__title" id="popular-title">Популярные товары</h2>
+          <ul class="product-grid product-grid--wide">
+            <li class="product-grid__item" data-category="cameras" data-hit>
+              <article class="product-card">
+                <span class="badge product-card__badge">Хит</span>
+                <picture>
+                  <source type="image/webp" srcset="images/camera-slr-320.webp 320w, images/camera-slr-480.webp 480w, images/camera-slr-640.webp 640w" sizes="(min-width: 1440px) 284px, (min-width: 1024px) 224px, (min-width: 480px) calc(50vw - 28px), calc(100vw - 32px)" />
+                  <img class="product-card__img" src="images/camera-slr-640.jpg" srcset="images/camera-slr-320.jpg 320w, images/camera-slr-480.jpg 480w, images/camera-slr-640.jpg 640w" sizes="(min-width: 1440px) 284px, (min-width: 1024px) 224px, (min-width: 480px) calc(50vw - 28px), calc(100vw - 32px)" alt="Зеркальная плёночная камера с объективом на деревянной полке" width="640" height="480" loading="lazy" decoding="async" />
+                </picture>
+                <p class="product-card__category">Камеры</p>
+                <h3 class="product-card__title">Плёночная камера</h3>
+                <p class="product-card__desc">Механическая камера 35 мм в рабочем состоянии.</p>
+                <p class="product-card__price">12 900 ₽</p>
+                <a class="button product-card__button" href="product.html">Подробнее<span class="visually-hidden"> о товаре «Плёночная камера»</span></a>
+              </article>
+            </li>
+            <li class="product-grid__item" data-category="decor" data-sale>
+              <article class="product-card">
+                <span class="badge badge--sale product-card__badge">−20%</span>
+                <picture>
+                  <source type="image/webp" srcset="images/coasters-320.webp 320w, images/coasters-480.webp 480w, images/coasters-640.webp 640w" sizes="(min-width: 1440px) 284px, (min-width: 1024px) 224px, (min-width: 480px) calc(50vw - 28px), calc(100vw - 32px)" />
+                  <img class="product-card__img" src="images/coasters-640.jpg" srcset="images/coasters-320.jpg 320w, images/coasters-480.jpg 480w, images/coasters-640.jpg 640w" sizes="(min-width: 1440px) 284px, (min-width: 1024px) 224px, (min-width: 480px) calc(50vw - 28px), calc(100vw - 32px)" alt="Стопка круглых деревянных подставок с гравировкой" width="640" height="480" loading="lazy" decoding="async" />
+                </picture>
+                <p class="product-card__category">Интерьер</p>
+                <h3 class="product-card__title">Деревянные подставки</h3>
+                <p class="product-card__desc">Набор из 6 подставок под кружки из бамбука.</p>
+                <p class="product-card__price">1 200 ₽ <s class="old-price"><span class="visually-hidden">Старая цена: </span>1 500 ₽</s></p>
+                <a class="button product-card__button" href="product-coasters.html">Подробнее<span class="visually-hidden"> о товаре «Деревянные подставки»</span></a>
+              </article>
+            </li>
+            <li class="product-grid__item" data-category="tools">
+              <article class="product-card">
+                <span class="badge badge--new product-card__badge">Новинка</span>
+                <picture>
+                  <source type="image/webp" srcset="images/gloves-320.webp 320w, images/gloves-480.webp 480w, images/gloves-640.webp 640w" sizes="(min-width: 1440px) 284px, (min-width: 1024px) 224px, (min-width: 480px) calc(50vw - 28px), calc(100vw - 32px)" />
+                  <img class="product-card__img" src="images/gloves-640.jpg" srcset="images/gloves-320.jpg 320w, images/gloves-480.jpg 480w, images/gloves-640.jpg 640w" sizes="(min-width: 1440px) 284px, (min-width: 1024px) 224px, (min-width: 480px) calc(50vw - 28px), calc(100vw - 32px)" alt="Пара разношенных кожаных рабочих перчаток" width="640" height="480" loading="lazy" decoding="async" />
+                </picture>
+                <p class="product-card__category">Инструменты</p>
+                <h3 class="product-card__title">Кожаные перчатки</h3>
+                <p class="product-card__desc">Рабочие перчатки из толстой кожи.</p>
+                <p class="product-card__price">1 100 ₽</p>
+                <a class="button product-card__button" href="product-gloves.html">Подробнее<span class="visually-hidden"> о товаре «Кожаные перчатки»</span></a>
+              </article>
+            </li>
+            <li class="product-grid__item" data-category="paper" data-hit>
+              <article class="product-card">
+                <span class="badge product-card__badge">Хит</span>
+                <picture>
+                  <source type="image/webp" srcset="images/notebook-320.webp 320w, images/notebook-480.webp 480w, images/notebook-640.webp 640w" sizes="(min-width: 1440px) 284px, (min-width: 1024px) 224px, (min-width: 480px) calc(50vw - 28px), calc(100vw - 32px)" />
+                  <img class="product-card__img" src="images/notebook-640.jpg" srcset="images/notebook-320.jpg 320w, images/notebook-480.jpg 480w, images/notebook-640.jpg 640w" sizes="(min-width: 1440px) 284px, (min-width: 1024px) 224px, (min-width: 480px) calc(50vw - 28px), calc(100vw - 32px)" alt="Стопка блокнотов в крафт-обложке с надписью" width="640" height="480" loading="lazy" decoding="async" />
+                </picture>
+                <p class="product-card__category">Канцелярия</p>
+                <h3 class="product-card__title">Блокнот в обложке</h3>
+                <p class="product-card__desc">Плотная бумага и прочная обложка.</p>
+                <p class="product-card__price">890 ₽</p>
+                <a class="button product-card__button" href="product-notebook.html">Подробнее<span class="visually-hidden"> о товаре «Блокнот в обложке»</span></a>
+              </article>
+            </li>
+          </ul>
+          <p class="section__more"><a class="button button--outline" href="catalog.html">Весь каталог</a></p>
         </div>
       </section>
 
-      <section class="section section--alt" id="contacts">
+      <section class="section" id="contacts" aria-labelledby="contacts-title">
         <div class="container">
-          <h2>Контакты</h2>
-          <p>
-            Москва, ул. Пушкина, д. Колотушкина<br />E-mail:
-            <a href="mailto:hello@example.com">hello@example.com</a>
-          </p>
+          <h2 class="section__title" id="contacts-title">Контакты</h2>
+          <p>Москва, ул. Пушкина, д. Колотушкина<br />E-mail: <a href="mailto:hello@example.com">hello@example.com</a></p>
           <a class="button" href="contacts.html">Все контакты</a>
         </div>
       </section>
@@ -158,13 +155,32 @@
 
     <footer class="site-footer">
       <div class="container">
-        <section class="site-footer__about" id="about">
-          <h2 class="site-footer__title">О нас</h2>
-          <p class="site-footer__text">
-            Винтаж-лавка — небольшой магазин старинных и винтажных вещей:
-            камеры, инструменты, канцелярия и предметы интерьера.
-          </p>
-        </section>
+        <div class="site-footer__grid">
+          <section id="about" aria-labelledby="about-title">
+            <h2 id="about-title">О нас</h2>
+            <p>
+              Винтаж-лавка — небольшой магазин старинных и винтажных вещей:
+              камеры, инструменты, канцелярия и предметы интерьера.
+            </p>
+          </section>
+          <nav aria-labelledby="footer-nav-title">
+            <h2 id="footer-nav-title">Разделы</h2>
+            <ul class="site-footer__list">
+              <li><a href="index.html">Главная</a></li>
+              <li><a href="catalog.html">Каталог</a></li>
+              <li><a href="order.html">Заявка</a></li>
+              <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+          </nav>
+          <section aria-labelledby="footer-contacts-title">
+            <h2 id="footer-contacts-title">Контакты</h2>
+            <address class="site-footer__list">
+              <span>Москва, ул. Пушкина, д. Колотушкина</span>
+              <a href="tel:+70000000000">+7 (000) 000-00-00</a>
+              <a href="mailto:hello@example.com">hello@example.com</a>
+            </address>
+          </section>
+        </div>
         <p class="site-footer__copy">2026 Винтаж-лавка. Учебный проект</p>
       </div>
     </footer>
