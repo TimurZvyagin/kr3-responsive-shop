@@ -13,8 +13,11 @@ if (navToggle) {
     setMenu(navToggle.getAttribute("aria-expanded") !== "true");
   });
 
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && header.classList.contains("site-header--open")) {
+  document.addEventListener("keydown", (event) => { 
+    if (
+      event.key === "Escape" &&
+      header.classList.contains("site-header--open")
+    ) {
       setMenu(false);
       navToggle.focus();
     }
@@ -47,8 +50,10 @@ if (filters) {
   });
 
   const updateCount = () => {
-    const visible = items.filter((item) => getComputedStyle(item).display !== "none").length;
-    count.textContent = `Показано товаров: ${visible} из ${items.length}`;
+    const visible = items.filter(
+      (item) => getComputedStyle(item).display !== "none",
+    ).length;
+    count.textContent = `показано товаров: ${visible} из ${items.length}`;
     empty.hidden = visible > 0;
   };
   filters.addEventListener("change", updateCount);
